@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}"
@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "bg-dark": "#020617",        // very dark
+        "bg-dark": "#020617",
         "card-dark": "#020617",
-        "accent": "#22d3ee",         // cyan
+        "accent": "#22d3ee",
         "accent-soft": "#0ea5e9",
       },
       backgroundImage: {
