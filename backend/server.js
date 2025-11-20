@@ -20,19 +20,18 @@ const allowedOrigins = [
 // CORS Configuration
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        console.log("❌ CORS Blocked:", origin);
-        callback(new Error("Not allowed by CORS: " + origin));
+        return callback(null, true);
       }
+      return callback(new Error("CORS blocked: " + origin));
     },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
   })
 );
+
 
 // Middlewares
 app.use(express.json());
