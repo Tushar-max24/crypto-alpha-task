@@ -10,8 +10,27 @@ connectDB();
 
 const app = express();
 
-// Middlewares
-app.use(cors());
+// Allowed frontend origins
+const allowedOrigins = [
+  "http://localhost:5173",                         // local dev frontend
+  "https://crypto-alpha.vercel.app",              // Vercel frontend
+];
+
+// CORS config
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow same server/no origin (Postman, etc.)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("CORS blocked from: " + origin));
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 app.use(morgan("dev"));
 
