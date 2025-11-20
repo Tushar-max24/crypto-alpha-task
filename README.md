@@ -7,7 +7,7 @@ A modern web application for managing crypto trading signals with authentication
 ### 🌐 Live Demo
 
 Frontend: https://crypto-alpha-task.vercel.app  
-Backend: https://crypto-alpha-task.onrender.com/api
+Backend: https://crypto-alpha-task.onrender.com/
 
 ---
 
